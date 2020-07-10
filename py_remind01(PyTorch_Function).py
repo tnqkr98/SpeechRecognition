@@ -1,3 +1,7 @@
+
+"""
+6개월만에 PyTorch 복습(20/07/10)
+"""
 import numpy as np
 import torch
 print(np.__version__)
