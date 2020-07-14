@@ -22,7 +22,7 @@ for epoch in range(nb_epochs+1):
     cost = torch.mean((hypothesis - y_train) ** 2)  # Low-level MSE
 
     optimizer.zero_grad()   # 텐서 내부적으로 누적 된 gradient를 0으로 초기화(역전파 이전에 반드시 수행해야함)
-    cost.backward()         # 연산추적이 활성화 된 경우, 이 함수를 호출 시 모든 변화도(gradient) 자동계산. dloss/dx. 이값은 텐서에 저장됨(.grad)
+    cost.backward()         # 연산추적이 활성화 된 경우, 이 함수를 호출 시 모든 변화도(gradient=미분값)를 자동계산. dloss/dx. 이값은 텐서에 저장됨(.grad 속성에)
     optimizer.step()        # 텐서에 저장된 변화(gradient)를 기반으로 optimizer는 가중치를 update 함.
 
     if epoch % 100 == 0:
