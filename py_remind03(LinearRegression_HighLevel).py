@@ -21,7 +21,7 @@ optimizer = optim.SGD(model.parameters(),lr=0.01)
 nb_epochs = 1000
 for epoch in range(nb_epochs+1):
     prediction = model(x_train)
-    cost = F.mse_loss(prediction, y_train)
+    cost = F.mse_loss(prediction, y_train)      # mse
 
     optimizer.zero_grad()
     cost.backward()
