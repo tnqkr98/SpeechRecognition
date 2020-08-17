@@ -91,7 +91,7 @@ print(t.max(dim=1))                       # 행 Max , argmax
 # View (Numpy의 Reshape과 유사)
 t = np.array([[[0, 1, 2],
                [3, 4, 5]],
-              [[6, 7, 8],
+               [[6, 7, 8],
                [9, 10, 11]]])
 ft = torch.FloatTensor(t)
 print(ft.shape)

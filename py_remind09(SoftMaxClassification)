@@ -6,7 +6,7 @@ import torch.optim as optim
 class SoftmaxClassifierModel(nn.Module):
     def __init__(self):
         super().__init__()
-        self.linear = nn.Linear(4, 3)
+        self.linear = nn.Linear(4, 3)   # 최종 output이 class의 개수
 
     def forward(self, x):
         return self.linear(x)
@@ -30,7 +30,7 @@ nb_epochs = 1000
 for epoch in range(nb_epochs + 1):
 
     prediction = model(x_train)
-    cost = F.cross_entropy(prediction, y_train)
+    cost = F.cross_entropy(prediction, y_train) # 내부적으로 소프트맥스가 포함됨
 
     optimizer.zero_grad()
     cost.backward()
