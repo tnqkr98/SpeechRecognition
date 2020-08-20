@@ -17,6 +17,7 @@ h = F.softmax(z, dim=1)     # 2차원 행렬에 대해, 행에 대한 softmax
 print(h)
 
 y = torch.randint(5, (3,)).long()         # randint([시작값=0], 끝값, (행렬형태))
+print(y)
 y_one_hot = torch.zeros_like(h)           # 0으로 채운 3x5 행렬
 y_one_hot.scatter_(1, y.unsqueeze(1), 1)  # 위 y벡터를 행렬에 one-hot 인코딩.(참값)
 print(y_one_hot)
