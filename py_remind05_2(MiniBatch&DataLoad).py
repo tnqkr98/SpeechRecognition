@@ -18,7 +18,7 @@ dataloader = DataLoader(dataset, batch_size=2, shuffle=True)  # 메모리 구조
 model = nn.Linear(3,1)
 optimizer = torch.optim.SGD(model.parameters(), lr=1e-5)
 
-# 한번에 다돌리면 배치경사하강법, 미니배치로 돌리면 미니배치 경사하강법(쓰는이유 : 시스템 연산부담완화) ㅋㅋ
+# 한번에 다돌리면 배치경사하강법, 미니배치로 돌리면 미니배치 경사하강법(쓰는이유 : 시스템 연산부담완화)
 nb_epochs = 20
 for epoch in range(nb_epochs+1):
     for batch_idx, data in enumerate(dataloader):
