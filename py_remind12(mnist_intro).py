@@ -54,6 +54,7 @@ for epoch in range(training_epochs):
 
     print('epoch : {:d} , avg_cost = {:.3f}'.format(epoch,avg_cost/total_batch))
 
+# 이 with 구문은 기울기 연산 추적 중단 및 메모리 사용을 해당 블록에서 중단시킨다.
 with torch.no_grad():
     X_test = mnist_test.test_data.view(-1,28*28).float().to(device)
     Y_test = mnist_test.test_labels.to(device)
@@ -61,7 +62,7 @@ with torch.no_grad():
     prediction = linear(X_test)
     correct_prediction = torch.argmax(prediction,1) == Y_test
     accuracy = correct_prediction.float().mean()
-    print('accuracy:',accuracy.item())
+    print('accuracy:',accuracy.item())  #전체 test셋 정확도
 
     # Get one and predict
     r = random.randint(0,len(mnist_test)-1)
