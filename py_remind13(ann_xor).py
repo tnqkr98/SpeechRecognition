@@ -10,11 +10,12 @@ X = torch.FloatTensor([[0,0],[0,1],[1,0],[1,1]]).to(device)
 Y = torch.FloatTensor([[0],[1],[1],[0]]).to(device)
 
 # 네트워크 레이어를 설정한다. Input = 2, Output = 1 , 이항 분류이므로 마지막에 Sigmoid !
-linear = torch.nn.Linear(2,1,bias=True)
+linear1 = torch.nn.Linear(2,2,bias=True)
+linear2 = torch.nn.Linear(2,1,bias=True)
 sigmoid = torch.nn.Sigmoid()
 
-# 모델을 설정한다 (레이어를 이어붙여놓으면 그게 모델)
-model = torch.nn.Sequential(linear, sigmoid).to(device)
+# 모델을 설정한다 (레이어를 이어붙여놓으면 그게 모델, 각 레이어 사이에는 활성화함수!)
+model = torch.nn.Sequential(linear1, sigmoid, linear2, sigmoid).to(device)
 
 # 손실함수와 최적화함수를 정한다
 criterion = torch.nn.BCELoss().to(device)
